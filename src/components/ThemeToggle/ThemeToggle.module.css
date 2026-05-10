@@ -1,0 +1,24 @@
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface, rgba(0,0,0,0.05));
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+
+:global([data-theme="dark"]) .toggleBtn {
+  background: rgba(255,255,255,0.1);
+}
+
+.toggleBtn:hover {
+  transform: scale(1.1);
+  color: var(--accent);
+}

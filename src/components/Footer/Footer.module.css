@@ -1,0 +1,140 @@
+.footer {
+    background-color: var(--primary-dark);
+    color: #f8f9fa;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+:global([data-theme="dark"]) .footer  {
+        background-color: #081018;
+        /* Even darker in dark mode */
+    }
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+    .footerGrid {
+        grid-template-columns: 2fr 1fr 1.5fr;
+    }
+}
+
+.brandCol {
+    max-width: 320px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.logoImage {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.brandDesc {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 16px;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all var(--transition-fast);
+}
+
+.socialIcon:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+}
+
+.colTitle {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.colTitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.linksCol ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.linksCol a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
+}
+
+.linksCol a:hover {
+    color: var(--accent);
+    padding-left: 4px;
+}
+
+.contactList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contactList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+.contactIcon {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.bottomBar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}

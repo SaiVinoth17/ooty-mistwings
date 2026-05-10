@@ -1,0 +1,236 @@
+:root {
+  /* Brand Colors */
+  --primary: #2d6a4f;
+  --primary-light: #40916c;
+  --primary-dark: #1b4332;
+  
+  --secondary: #d8f3dc;
+  --accent: #ff9f1c;
+
+  /* Neutrals */
+  --bg-color: #f8f9fa;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+
+  /* Gradients */
+  --gradient-nature: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  --gradient-dark: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
+
+  /* UI Tokens */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-lg: 0 20px 25px rgba(0,0,0,0.15);
+  --shadow-xl: 0 32px 60px rgba(0,0,0,0.18);
+  
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── iOS 26 Liquid Glass tokens ── */
+  --glass-bg-light:        rgba(255, 255, 255, 0.22);
+  --glass-bg-mid:          rgba(255, 255, 255, 0.14);
+  --glass-bg-deep:         rgba(255, 255, 255, 0.08);
+  --glass-border-light:    rgba(255, 255, 255, 0.55);
+  --glass-border-mid:      rgba(255, 255, 255, 0.30);
+  --glass-border-deep:     rgba(255, 255, 255, 0.12);
+  --glass-blur-sm:         blur(12px);
+  --glass-blur-md:         blur(24px);
+  --glass-blur-lg:         blur(40px);
+  --glass-specular:        rgba(255, 255, 255, 0.70);
+  --glass-inner-shadow:    inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.04);
+  --glass-drop-shadow:     0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  --glass-drop-shadow-lg:  0 24px 64px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10);
+}
+
+[data-theme="dark"] {
+  --bg-color: #0d1b2a;
+  --text-main: #f8f9fa;
+  --text-muted: #adb5bd;
+  --secondary: #1b263b;
+  --shadow-md: 0 10px 15px rgba(0,0,0,0.4);
+
+  /* dark-mode glass overrides */
+  --glass-bg-light:        rgba(255, 255, 255, 0.10);
+  --glass-bg-mid:          rgba(255, 255, 255, 0.07);
+  --glass-bg-deep:         rgba(0, 0, 0, 0.30);
+  --glass-border-light:    rgba(255, 255, 255, 0.22);
+  --glass-border-mid:      rgba(255, 255, 255, 0.12);
+  --glass-border-deep:     rgba(255, 255, 255, 0.05);
+  --glass-inner-shadow:    inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.20);
+  --glass-drop-shadow:     0 8px 32px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.30);
+  --glass-drop-shadow-lg:  0 24px 64px rgba(0,0,0,0.65), 0 8px 24px rgba(0,0,0,0.40);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-outfit), sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   Base utility classes
+───────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─────────────────────────────────────────────
+   iOS 26 Liquid Glass utility classes
+   Usage: add .glass, .glass-md, .glass-deep
+───────────────────────────────────────────── */
+
+/* Light surface — nav pills, badges, search bar */
+.glass {
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur-md) saturate(180%);
+  -webkit-backdrop-filter: var(--glass-blur-md) saturate(180%);
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow);
+}
+
+/* Mid surface — cards, panels */
+.glass-md {
+  background: var(--glass-bg-mid);
+  backdrop-filter: var(--glass-blur-lg) saturate(200%);
+  -webkit-backdrop-filter: var(--glass-blur-lg) saturate(200%);
+  border: 1px solid var(--glass-border-mid);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow);
+}
+
+/* Deep surface — modals, overlays */
+.glass-deep {
+  background: var(--glass-bg-deep);
+  backdrop-filter: var(--glass-blur-lg) saturate(220%) brightness(1.05);
+  -webkit-backdrop-filter: var(--glass-blur-lg) saturate(220%) brightness(1.05);
+  border: 1px solid var(--glass-border-deep);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow-lg);
+}
+
+/* legacy alias used in Hero */
+.glass-panel {
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur-md) saturate(180%);
+  -webkit-backdrop-filter: var(--glass-blur-md) saturate(180%);
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow);
+}
+
+/* ─────────────────────────────────────────────
+   Specular highlight pseudo-element helper
+   Use on any .glass* element that needs a top sheen:
+   add class  .glass-sheen
+───────────────────────────────────────────── */
+.glass-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.glass-sheen::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 42%;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    var(--glass-specular) 0%,
+    rgba(255,255,255,0) 100%
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+[data-theme="dark"] .glass-sheen::before {
+  opacity: 0.12;
+}
+
+/* ─────────────────────────────────────────────
+   3-D scroll perspective wrapper
+   Wrap page sections in <div class="scroll-3d">
+───────────────────────────────────────────── */
+.scroll-perspective {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+/* View Transitions for Dark Mode Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+[data-theme="dark"]::view-transition-old(root) { z-index: 2; }
+[data-theme="dark"]::view-transition-new(root) { z-index: 1; }
+
+/* ─────────────────────────────────────────────
+   Reusable scroll-reveal animation classes
+   (driven by Framer Motion in components,
+    but these supply baseline styles)
+───────────────────────────────────────────── */
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(40px) rotateX(8deg); }
+  to   { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+@keyframes liquidIn {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.94) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Tilt on hover — add to any card */
+.tilt-card {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt-card:hover {
+  transform: perspective(800px) rotateX(-4deg) rotateY(3deg) translateY(-8px) scale(1.02);
+  box-shadow: var(--glass-drop-shadow-lg);
+}

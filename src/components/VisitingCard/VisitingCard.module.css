@@ -1,0 +1,165 @@
+.section {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.cardContainer {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+/* Liquid Blobs */
+.blob1, .blob2, .blob3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+    animation: flow 10s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(82, 183, 136, 0.6);
+    top: -50px;
+    left: -50px;
+}
+
+.blob2 {
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 159, 28, 0.4);
+    bottom: -50px;
+    right: -20px;
+    animation-delay: -2s;
+    animation-direction: alternate-reverse;
+}
+
+.blob3 {
+    width: 200px;
+    height: 200px;
+    background: rgba(43, 147, 72, 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -5s;
+}
+
+@keyframes flow {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Glassmorphism Card */
+.glassCard {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+:global([data-theme="dark"]) .glassCard  {
+        background: rgba(13, 27, 42, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+.glassCard:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 24px;
+}
+
+:global([data-theme="dark"]) .cardHeader  {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+.logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.companyName {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:global([data-theme="dark"]) .tagline  {
+        color: var(--accent);
+    }
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--primary);
+    backdrop-filter: blur(10px);
+}
+
+:global([data-theme="dark"]) .iconBox  {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--accent);
+    }
+
+.contactItem p {
+    margin: 0;
+    line-height: 1.4;
+}

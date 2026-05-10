@@ -1,0 +1,227 @@
+.aboutSection {
+    padding: 120px 0;
+    position: relative;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+/* Subtle ambient blob behind content */
+.aboutSection::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: -100px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+[data-theme="dark"] .aboutSection::before {
+    background: radial-gradient(circle, rgba(255,159,28,0.06) 0%, transparent 70%);
+}
+
+.aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .aboutGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.imageCol {
+    position: relative;
+    height: 600px;
+    perspective: 800px;
+}
+
+.imageGrid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.imgBox {
+    position: absolute;
+    border-radius: var(--radius-md);
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--glass-drop-shadow-lg);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+    overflow: hidden;
+}
+
+/* Inner specular sheen on each image box */
+.imgBox::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.imgBox:hover {
+    transform: scale(1.04) translateZ(20px);
+    box-shadow: 0 32px 72px rgba(0,0,0,0.22);
+    z-index: 10;
+}
+
+.tall {
+    width: 50%;
+    height: 80%;
+    top: 10%;
+    left: 0;
+    background-image: url('/about_tea_estate.png');
+    transform: rotateY(2deg) rotateX(-1deg);
+}
+
+.wide {
+    width: 60%;
+    height: 45%;
+    top: 0;
+    right: 0;
+    background-image: url('/about_waterfall.png');
+    z-index: 2;
+    transform: rotateY(-2deg) rotateX(1deg);
+}
+
+.small {
+    width: 45%;
+    height: 40%;
+    bottom: 0;
+    right: 10%;
+    background-image: url('/about_bungalow.png');
+    z-index: 3;
+    transform: rotateY(-1deg) rotateX(2deg);
+}
+
+.sectionBadge {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+:global([data-theme="dark"]) .sectionBadge {
+    color: var(--accent);
+}
+
+.title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+:global([data-theme="dark"]) .highlight {
+    color: var(--accent);
+}
+
+.desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.featuresList {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .featuresList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ── Liquid glass feature cards ── */
+.featureItem {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg-light);
+    backdrop-filter: var(--glass-blur-sm) saturate(180%);
+    -webkit-backdrop-filter: var(--glass-blur-sm) saturate(180%);
+    border: 1px solid var(--glass-border-mid);
+    box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featureItem::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.30) 0%, transparent 100%);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    pointer-events: none;
+}
+
+:global([data-theme="dark"]) .featureItem::before {
+    background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 100%);
+}
+
+.featureItem:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--glass-drop-shadow-lg);
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--secondary);
+    color: var(--primary);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.50);
+}
+
+:global([data-theme="dark"]) .iconBox {
+    background: rgba(255, 159, 28, 0.12);
+    color: var(--accent);
+}
+
+.featureItem h4 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    position: relative;
+    z-index: 1;
+}
+
+.featureItem p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}

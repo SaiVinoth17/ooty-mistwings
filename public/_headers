@@ -1,0 +1,26 @@
+# 3D Model & Asset Caching for Netlify Edge CDN
+# Ensures Draco-compressed .glb, .bin, textures are cached long-term
+
+/models/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.glb
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.bin
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.basis
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ktx2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
