@@ -1,25 +1,44 @@
 .aboutSection {
-    padding: 120px 0;
+    padding: clamp(80px, 10vw, 140px) 0;
     position: relative;
     background-color: var(--bg-color);
     overflow: hidden;
+    isolation: isolate;
 }
 
-/* Subtle ambient blob behind content */
+/* Ambient blobs */
 .aboutSection::before {
     content: '';
     position: absolute;
-    top: -120px;
-    left: -100px;
-    width: 600px;
-    height: 600px;
+    top: -160px;
+    left: -120px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(45,106,79,0.10) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+    animation: pulsate 10s ease-in-out infinite alternate;
 }
 [data-theme="dark"] .aboutSection::before {
-    background: radial-gradient(circle, rgba(255,159,28,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,159,28,0.08) 0%, transparent 70%);
+}
+.aboutSection::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(64,145,108,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulsate 14s ease-in-out infinite alternate-reverse;
+}
+@keyframes pulsate {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.15); opacity: 1; }
 }
 
 .aboutGrid {
@@ -39,7 +58,7 @@
 
 .imageCol {
     position: relative;
-    height: 600px;
+    height: clamp(380px, 55vw, 600px);
     perspective: 800px;
 }
 

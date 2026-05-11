@@ -9,6 +9,11 @@ import { Packages } from "@/components/Packages/Packages";
 import { VisitingCard } from "@/components/VisitingCard/VisitingCard";
 import { Footer } from "@/components/Footer/Footer";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
+import { ScrollProgressBar, AmbientOrbs, NatureDivider } from "@/components/ScrollEffects/ScrollEffects";
+
+// Load nature particles dynamically (canvas, client-only)
+const NatureParticles = dynamic(() => import("@/components/NatureParticles/NatureParticles"), { ssr: false });
 
 export default function Home() {
   // Smooth scroll for anchor links
@@ -31,12 +36,21 @@ export default function Home() {
 
   return (
     <>
+      {/* Global scroll effects */}
+      <ScrollProgressBar />
+      <AmbientOrbs />
+      <NatureParticles intensity={1} />
+
       <Navigation />
       <main>
         <Hero />
+        <NatureDivider />
         <About />
+        <NatureDivider />
         <ExploreSection />
+        <NatureDivider />
         <ServicesSection />
+        <NatureDivider />
         <Packages />
         <VisitingCard />
       </main>

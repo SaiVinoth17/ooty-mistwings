@@ -58,7 +58,7 @@ const packages = [
         transport: 'Sedan Cab',
         price: '₹2,500',
         basePrice: 2500,
-        image: '/ooty-pykara.png',
+        image: '/pykara-boating.png',
         tags: ['Waterfalls', 'Lake Boating'],
         featured: false,
         description: 'Escape to the pristine beauty of Pykara. Enjoy breathtaking waterfalls, lakes, and forests.',

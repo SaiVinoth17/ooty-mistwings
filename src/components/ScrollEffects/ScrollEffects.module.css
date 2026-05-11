@@ -1,0 +1,64 @@
+.progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary-light) 100%);
+    transform-origin: 0%;
+    z-index: 9999;
+    box-shadow: 0 0 12px rgba(45, 106, 79, 0.7), 0 0 4px rgba(255,159,28,0.5);
+}
+
+.orbsContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    top: -10%;
+    border-radius: 50%;
+    filter: blur(80px);
+    will-change: transform, opacity;
+    animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.05); }
+    100% { transform: translateY(20px) scale(0.97); }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    color: var(--primary-light);
+}
+
+.dividerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+    opacity: 0.4;
+}
+
+.dividerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: leafSpin 4s ease-in-out infinite alternate;
+}
+
+@keyframes leafSpin {
+    0% { transform: rotate(-10deg) scale(1); }
+    100% { transform: rotate(10deg) scale(1.1); }
+}
