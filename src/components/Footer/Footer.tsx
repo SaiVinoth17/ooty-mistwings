@@ -52,7 +52,7 @@ export const Footer = () => {
 
             <div className={styles.bottomBar}>
                 <div className="container">
-                    <p>&copy; {new Date().getFullYear()} MistWings Holidays. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Designed And Developed By Sai Vinoth. All rights reserved.</p>
                 </div>
             </div>
         </footer>
