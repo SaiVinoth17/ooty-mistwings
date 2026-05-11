@@ -35,7 +35,7 @@ export const Footer = () => {
                     <ul className={styles.contactList}>
                         <li>
                             <MapPin size={18} className={styles.contactIcon} />
-                            <span>1, Commercial Road, Ooty, Tamil Nadu 643001</span>
+                            <span>Commercial Road, Charring Cross, Ooty, Tamil Nadu 643001</span>
                         </li>
                         <li>
                             <Phone size={18} className={styles.contactIcon} />
@@ -44,7 +44,7 @@ export const Footer = () => {
                         </li>
                         <li>
                             <Mail size={18} className={styles.contactIcon} />
-                            <span>ootytaxiservice43@gmail.com</span>
+                            <span>ootymistwings43@gmail.com</span>
                         </li>
                     </ul>
                 </div>
