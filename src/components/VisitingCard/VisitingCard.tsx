@@ -33,7 +33,7 @@ export function VisitingCard() {
                             </div>
                             <div className={styles.contactItem}>
                                 <div className={styles.iconBox}><Mail size={18} /></div>
-                                <p>ootytaxiservice43@gmail.com</p>
+                                <p>ootymistwings43@gmail.com</p>
                             </div>
                             <div className={styles.contactItem}>
                                 <div className={styles.iconBox}><Globe size={18} /></div>
