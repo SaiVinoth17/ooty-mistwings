@@ -338,7 +338,7 @@ export const Packages = () => {
                                             <h4>
                                                 {bookingStep === 1 && 'Tour Itinerary'}
                                                 {bookingStep === 2 && 'Travel Date & Guests'}
-                                                {bookingStep === 3 && 'Pickup & Drop Location'}
+                                                {bookingStep === 3 && '📍 Pickup & Drop Location'}
                                                 {bookingStep === 4 && 'Select Cab & Book'}
                                             </h4>
                                             <div className={styles.stepIndicators}>
@@ -445,7 +445,7 @@ export const Packages = () => {
                                                         <MapSelector
                                                             onLocationSelect={(loc) => setPickupLocation(loc.address)}
                                                             value={pickupLocation}
-                                                            placeholder="Enter pickup & drop point..."
+                                                            placeholder="Search your hotel, station or landmark..."
                                                         />
                                                     </div>
 

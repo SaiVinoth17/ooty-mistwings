@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ooty-mistwings.com
+Host: https://ootymistwings.com
 
 # Sitemaps
-Sitemap: https://ooty-mistwings.com/sitemap.xml
+Sitemap: https://ootymistwings.com/sitemap.xml
