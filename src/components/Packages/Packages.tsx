@@ -132,7 +132,7 @@ const packages = [
     },
     {
         id: 6,
-        title: 'Coimbatore Station / Airport Transfer',
+        title: 'Coimbatore Station / Airport Pickup',
         duration: 'Flexible Timing',
         groupSize: 'Up to 4 Persons',
         transport: 'Sedan Cab',
@@ -152,7 +152,7 @@ const packages = [
     },
     {
         id: 7,
-        title: 'Mysore Railway Transfer',
+        title: 'Mysore Railway Pickup',
         duration: 'Flexible Timing',
         groupSize: 'Up to 4 Persons',
         transport: 'Sedan Cab',
@@ -172,7 +172,7 @@ const packages = [
     },
     {
         id: 8,
-        title: 'Mettupalayam Transfer',
+        title: 'Mettupalayam Pickup',
         duration: 'Flexible Timing',
         groupSize: 'Up to 4 Persons',
         transport: 'Sedan Cab',
