@@ -1,0 +1,390 @@
+/* ─────────────────────────────────────────────
+   Testimonials Section
+───────────────────────────────────────────── */
+.testimonialsSection {
+    padding: clamp(80px, 10vw, 140px) 0;
+    background: linear-gradient(
+        180deg,
+        var(--bg-color) 0%,
+        color-mix(in srgb, var(--bg-color) 85%, var(--primary) 15%) 50%,
+        var(--bg-color) 100%
+    );
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   Ambient Blobs
+───────────────────────────────────────────── */
+.ambientBlob1 {
+    position: absolute;
+    top: -120px;
+    left: -180px;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulsateBlob 12s ease-in-out infinite alternate;
+}
+
+.ambientBlob2 {
+    position: absolute;
+    bottom: -150px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 159, 28, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulsateBlob 16s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulsateBlob {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.18); opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────
+   Section Header
+───────────────────────────────────────────── */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: clamp(40px, 6vw, 64px);
+    position: relative;
+    z-index: 1;
+}
+
+.sectionBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    padding: 8px 18px;
+    background: rgba(255, 159, 28, 0.08);
+    border: 1px solid rgba(255, 159, 28, 0.22);
+    border-radius: var(--radius-full);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-main);
+    margin-bottom: 16px;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+:global([data-theme='dark']) .highlight {
+    color: var(--accent);
+}
+
+.sectionDesc {
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   Slider Layout
+───────────────────────────────────────────── */
+.sliderWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cardViewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ─────────────────────────────────────────────
+   Testimonial Card
+───────────────────────────────────────────── */
+.testimonialCard {
+    background: var(--glass-bg-light);
+    backdrop-filter: var(--glass-blur-lg) saturate(200%);
+    -webkit-backdrop-filter: var(--glass-blur-lg) saturate(200%);
+    border: 1px solid var(--glass-border-mid);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow-lg);
+    padding: clamp(28px, 4vw, 48px);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Specular sheen on card */
+.testimonialCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, transparent 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    pointer-events: none;
+}
+
+:global([data-theme='dark']) .testimonialCard::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 100%);
+}
+
+/* Subtle bottom gradient accent */
+.testimonialCard::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-light));
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* ─────────────────────────────────────────────
+   Quote Icon
+───────────────────────────────────────────── */
+.quoteIconWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.quoteIcon {
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+:global([data-theme='dark']) .quoteIcon {
+    opacity: 0.55;
+}
+
+/* ─────────────────────────────────────────────
+   Quote Text
+───────────────────────────────────────────── */
+.quoteText {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-style: italic;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* ─────────────────────────────────────────────
+   Stars
+───────────────────────────────────────────── */
+.starsRow {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.starIcon {
+    color: var(--accent);
+}
+
+/* ─────────────────────────────────────────────
+   Traveler Row
+───────────────────────────────────────────── */
+.travelerRow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.travelerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.travelerName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    position: relative;
+    z-index: 1;
+}
+
+.travelerOrigin {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+}
+
+/* ─────────────────────────────────────────────
+   Trip Badge
+───────────────────────────────────────────── */
+.tripBadge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: rgba(45, 106, 79, 0.12);
+    border: 1px solid rgba(45, 106, 79, 0.2);
+    border-radius: var(--radius-full);
+    padding: 5px 14px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+}
+
+:global([data-theme='dark']) .tripBadge {
+    color: var(--accent);
+    background: rgba(255, 159, 28, 0.10);
+    border-color: rgba(255, 159, 28, 0.2);
+}
+
+@media (max-width: 600px) {
+    .tripBadge {
+        margin-left: 0;
+    }
+    .travelerRow {
+        flex-direction: column;
+        align-items: center;
+    }
+    .travelerInfo {
+        align-items: center;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   Arrow Buttons
+───────────────────────────────────────────── */
+.arrowBtn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--glass-bg-light);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+    border: 1px solid var(--glass-border-mid);
+    box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arrowBtn:hover {
+    background: var(--glass-bg-mid);
+    transform: scale(1.1);
+    box-shadow: var(--glass-drop-shadow-lg);
+}
+
+@media (max-width: 640px) {
+    .arrowBtn {
+        width: 38px;
+        height: 38px;
+    }
+    .sliderWrapper {
+        gap: 8px;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   Dot Navigation
+───────────────────────────────────────────── */
+.dotsRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    opacity: 0.35;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
+    min-height: unset;
+    min-width: unset;
+}
+
+.dotActive {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--accent);
+    opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   Progress Bar
+───────────────────────────────────────────── */
+.progressBar {
+    max-width: 900px;
+    margin: 16px auto 0;
+    height: 2px;
+    background: rgba(128, 128, 128, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+    transform-origin: left center;
+}

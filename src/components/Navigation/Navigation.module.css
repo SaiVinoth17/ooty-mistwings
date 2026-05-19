@@ -78,13 +78,35 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--primary);
     font-weight: 800;
     font-size: 1.5rem;
     letter-spacing: -0.5px;
     z-index: 1001;
     position: relative;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+.logoText {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .logoText {
+        display: block;
+    }
+}
+
+[data-theme="dark"] .logoText {
+    color: #f8f9fa;
 }
 
 :global([data-theme="dark"]) .logo {
@@ -119,23 +141,15 @@
 .navLink {
     position: relative;
     font-weight: 500;
+    font-size: 0.88rem;
     color: var(--text-main);
-    transition: color var(--transition-fast);
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: var(--radius-full);
     transition: all 0.25s ease;
-}
-
-.navLink::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -2px;
-    left: 14px;
-    background-color: var(--accent);
-    transition: width var(--transition-fast);
-    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .navLink:hover {
@@ -143,8 +157,63 @@
     background: rgba(255, 159, 28, 0.10);
 }
 
-.navLink:hover::after {
-    width: calc(100% - 28px);
+.activeLink {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .activeLink {
+    color: var(--accent) !important;
+}
+
+.activeDot {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.callBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: transparent;
+}
+
+.callBtn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+[data-theme="dark"] .callBtn {
+    border-color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+}
+
+[data-theme="dark"] .callBtn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.mobileRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .bookBtn {
@@ -226,17 +295,23 @@
 }
 
 .mobileNavLink {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--text-main);
     padding: 10px 32px;
     border-radius: var(--radius-full);
     transition: all 0.25s ease;
+    text-align: center;
 }
 
 .mobileNavLink:hover {
     color: var(--accent);
     background: rgba(255, 159, 28, 0.10);
+}
+
+.activeMobileLink {
+    color: var(--accent) !important;
+    background: rgba(255, 159, 28, 0.08);
 }
 
 .bookBtnMobile {

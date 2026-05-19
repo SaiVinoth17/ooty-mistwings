@@ -1,0 +1,391 @@
+/* ─────────────────────────────────────────────
+   Gallery Section
+───────────────────────────────────────────── */
+.gallerySection {
+    padding: clamp(80px, 10vw, 140px) 0;
+    background-color: var(--bg-color);
+    position: relative;
+    isolation: isolate;
+}
+
+/* Subtle ambient blobs */
+.gallerySection::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gallerySection::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 159, 28, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ─────────────────────────────────────────────
+   Section Header
+───────────────────────────────────────────── */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: clamp(40px, 6vw, 64px);
+    position: relative;
+    z-index: 1;
+}
+
+.sectionBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    padding: 8px 18px;
+    background: var(--glass-bg-light);
+    border: 1px solid var(--glass-border-mid);
+    border-radius: var(--radius-full);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+}
+
+:global([data-theme='dark']) .sectionBadge {
+    color: var(--accent);
+    background: rgba(255, 159, 28, 0.08);
+    border-color: rgba(255, 159, 28, 0.18);
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-main);
+    margin-bottom: 16px;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+:global([data-theme='dark']) .highlight {
+    color: var(--accent);
+}
+
+.sectionDesc {
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   Masonry Grid
+───────────────────────────────────────────── */
+.masonryGrid {
+    columns: 3;
+    column-gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .masonryGrid {
+        columns: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonryGrid {
+        columns: 1;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   Gallery Item
+───────────────────────────────────────────── */
+.galleryItem {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.galleryItem:hover .imageWrapper {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+    transform: translateY(-4px);
+}
+
+.galleryImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Aspect variations for visual interest */
+.tall .galleryImage {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+
+.wide .galleryImage {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+
+.square .galleryImage {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+
+.galleryItem:hover .galleryImage {
+    transform: scale(1.07);
+}
+
+/* ─────────────────────────────────────────────
+   Hover Overlay
+───────────────────────────────────────────── */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(10, 22, 40, 0.82) 0%,
+        rgba(10, 22, 40, 0.3) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 16px;
+}
+
+.galleryItem:hover .overlay {
+    opacity: 1;
+}
+
+.overlayContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    gap: 10px;
+}
+
+.zoomIcon {
+    color: #fff;
+    opacity: 0.9;
+    transform: scale(0.8);
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    margin-top: auto;
+}
+
+.galleryItem:hover .zoomIcon {
+    transform: scale(1);
+}
+
+.overlayText {
+    text-align: center;
+    margin-top: auto;
+    transform: translateY(8px);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.galleryItem:hover .overlayText {
+    transform: translateY(0);
+}
+
+.imageTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.imageLocation {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────────
+   Lightbox Backdrop
+───────────────────────────────────────────── */
+.lightboxBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9000;
+    cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────
+   Lightbox Modal
+───────────────────────────────────────────── */
+.lightboxModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9001;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.lightboxImage {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 16px;
+    object-fit: contain;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+    display: block;
+}
+
+.lightboxCaption {
+    text-align: center;
+    color: #fff;
+}
+
+.lightboxTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.lightboxLocation {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.lightboxCounter {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ─────────────────────────────────────────────
+   Lightbox Close Button
+───────────────────────────────────────────── */
+.closeBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9002;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: scale(1.1);
+}
+
+/* ─────────────────────────────────────────────
+   Lightbox Navigation Buttons
+───────────────────────────────────────────── */
+.navBtn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9002;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.navBtn:hover {
+    background: rgba(255, 255, 255, 0.24);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.navBtnPrev {
+    left: 20px;
+}
+
+.navBtnNext {
+    right: 20px;
+}
+
+@media (max-width: 640px) {
+    .navBtnPrev {
+        left: 10px;
+    }
+    .navBtnNext {
+        right: 10px;
+    }
+    .navBtn {
+        width: 42px;
+        height: 42px;
+    }
+    .closeBtn {
+        top: 12px;
+        right: 12px;
+    }
+}

@@ -1,0 +1,200 @@
+/* ═══════════════════════════════════════════════
+   FloatingActions.module.css
+   Fixed floating action buttons — bottom right
+═══════════════════════════════════════════════ */
+
+/* ─── Container ─── */
+.container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none; /* children re-enable */
+}
+
+/* ─────────────────────────────────────────────
+   Scroll-to-top button
+───────────────────────────────────────────── */
+.scrollTopWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.scrollTopBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.30);
+  background: rgba(45, 106, 79, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(45, 106, 79, 0.40);
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  will-change: transform;
+}
+
+.scrollTopBtn:hover {
+  transform: scale(1.12) translateY(-2px);
+  background: rgba(64, 145, 108, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 32px rgba(0, 0, 0, 0.45),
+    0 4px 16px rgba(45, 106, 79, 0.55);
+}
+
+.scrollTopBtn:active {
+  transform: scale(0.96);
+}
+
+.scrollTopBtn:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   WhatsApp button
+───────────────────────────────────────────── */
+.whatsappWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.whatsappBtn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #25d366;
+  box-shadow:
+    0 0 0 0 rgba(37, 211, 102, 0.5),
+    0 8px 28px rgba(37, 211, 102, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.whatsappBtn:hover {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow:
+    0 0 0 0 rgba(37, 211, 102, 0.5),
+    0 14px 40px rgba(37, 211, 102, 0.55),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.whatsappBtn:active {
+  transform: scale(0.96);
+}
+
+.whatsappBtn:focus-visible {
+  outline: 2px solid #25d366;
+  outline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   Pulse ring animation (WhatsApp)
+───────────────────────────────────────────── */
+.pulseRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  opacity: 0;
+  animation: pulseExpand 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.pulseRingDelay {
+  animation-delay: 1.4s;
+}
+
+@keyframes pulseExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Tooltip (shared)
+───────────────────────────────────────────── */
+.tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  /* Caret arrow pointing right */
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.18);
+}
+
+/* ─────────────────────────────────────────────
+   Mobile adjustments
+───────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .container {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Hide tooltip on touch devices — no hover */
+  .tooltip {
+    display: none;
+  }
+}

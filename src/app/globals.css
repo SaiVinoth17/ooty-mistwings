@@ -6,30 +6,47 @@
   
   --secondary: #d8f3dc;
   --accent: #ff9f1c;
+  --accent-warm: #ff7c00;
+
+  /* Surface tokens */
+  --surface: #ffffff;
+  --surface-raised: #f4f6f8;
+  --surface-overlay: rgba(255,255,255,0.85);
 
   /* Neutrals */
   --bg-color: #f8f9fa;
   --text-main: #212529;
   --text-muted: #6c757d;
+  --text-subtle: #9ca3af;
 
   /* Gradients */
   --gradient-nature: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   --gradient-dark: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
+  --gradient-hero: linear-gradient(to bottom, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.5) 60%, var(--bg-color) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-warm) 100%);
 
   /* UI Tokens */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
+  --radius-xl: 32px;
   --radius-full: 9999px;
   
   --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
   --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
   --shadow-lg: 0 20px 25px rgba(0,0,0,0.15);
   --shadow-xl: 0 32px 60px rgba(0,0,0,0.18);
+  --shadow-green: 0 8px 30px rgba(45,106,79,0.3);
+  --shadow-accent: 0 8px 30px rgba(255,159,28,0.3);
   
   --transition-fast: 0.2s ease-in-out;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Fonts */
+  --font-display: var(--font-playfair), serif;
+  --font-body: var(--font-outfit), sans-serif;
 
   /* ── iOS 26 Liquid Glass tokens ── */
   --glass-bg-light:        rgba(255, 255, 255, 0.22);
@@ -51,8 +68,13 @@
   --bg-color: #0a1628;
   --text-main: #f8f9fa;
   --text-muted: #adb5bd;
+  --text-subtle: #6c757d;
   --secondary: #1b263b;
+  --surface: #111f35;
+  --surface-raised: #162235;
+  --surface-overlay: rgba(10,22,40,0.9);
   --shadow-md: 0 10px 15px rgba(0,0,0,0.4);
+  --shadow-green: 0 8px 30px rgba(45,106,79,0.4);
 
   /* dark-mode glass overrides */
   --glass-bg-light:        rgba(255, 255, 255, 0.10);
@@ -65,6 +87,7 @@
   --glass-drop-shadow:     0 8px 32px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.30);
   --glass-drop-shadow-lg:  0 24px 64px rgba(0,0,0,0.65), 0 8px 24px rgba(0,0,0,0.40);
 }
+
 
 * {
   box-sizing: border-box;
