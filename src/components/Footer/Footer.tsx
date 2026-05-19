@@ -166,8 +166,8 @@ export const Footer = () => {
                 <div className={`container ${styles.bottomInner}`}>
                     <p>© {new Date().getFullYear()} MistWings Holidays. All rights reserved.</p>
                     <p className={styles.madeWith}>
-                        Made with <Heart size={12} className={styles.heartIcon} /> by{' '}
-                        <a href="#" className={styles.devLink}>Sai Vinoth</a>
+                        Designed & Developed by{' '}
+                        <a href="#need-a-website" className={styles.devLink}>Sai Vinoth</a>
                     </p>
                 </div>
             </div>

@@ -325,9 +325,22 @@
 .devLink {
     color: var(--accent);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    position: relative;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(255, 159, 28, 0.05);
+    border: 1px solid rgba(255, 159, 28, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
+    align-items: center;
 }
 
 .devLink:hover {
-    text-decoration: underline;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.8) 0%, rgba(255, 192, 100, 0.95) 100%);
+    border-color: rgba(255, 159, 28, 0.85);
+    box-shadow: 0 0 15px rgba(255, 159, 28, 0.35);
+    transform: translateY(-1px);
+    text-decoration: none;
 }

@@ -1,0 +1,466 @@
+.promoSection {
+    padding: 100px 0;
+    position: relative;
+    background: var(--bg-color);
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* Ambient glow orbs */
+.glowOrb1 {
+    position: absolute;
+    top: 10%;
+    left: -100px;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.2) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glowOrb2 {
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 159, 28, 0.15) 0%, transparent 70%);
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Code Watermark in background */
+.codeWatermark {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%) rotate(-4deg);
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+    white-space: pre;
+    font-weight: 500;
+}
+
+:global([data-theme="dark"]) .codeWatermark {
+    opacity: 0.04;
+}
+
+/* Container limits */
+.promoSection :global(.container) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Promo Card Wrapper */
+.promoCard {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: 60px 50px;
+    background: var(--glass-bg-mid);
+    backdrop-filter: var(--glass-blur-md) saturate(180%);
+    -webkit-backdrop-filter: var(--glass-blur-md) saturate(180%);
+    border: 1px solid var(--glass-border-mid);
+    box-shadow: var(--glass-inner-shadow), var(--glass-drop-shadow-lg);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+:global([data-theme="dark"]) .promoCard {
+    background: rgba(15, 32, 22, 0.35); /* Forest green overlay in dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.promoCard:hover {
+    border-color: rgba(255, 159, 28, 0.25);
+    box-shadow: var(--glass-drop-shadow-lg), 0 0 50px rgba(255, 159, 28, 0.06);
+}
+
+/* Top availability badge */
+.badgeRow {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.availBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 20px;
+    color: #25D366;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.05);
+}
+
+.pulseDot {
+    width: 8px;
+    height: 8px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.pulseDot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    opacity: 0;
+    animation: pulseGlow 2s infinite ease-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Card Content split layout */
+.cardContent {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .cardContent {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .promoCard {
+        padding: 50px 30px;
+        border-radius: 24px;
+    }
+}
+
+/* Left text column */
+.textCol {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.categoryBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    width: fit-content;
+    background: rgba(255, 159, 28, 0.1);
+    border: 1px solid rgba(255, 159, 28, 0.25);
+    border-radius: 30px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.headline {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--text-main);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+:global([data-theme="dark"]) .highlight {
+    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent) 0%, #ffc064 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.subheadline {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 90%;
+}
+
+/* Features Grid */
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+}
+
+@media (max-width: 480px) {
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.checkIcon {
+    color: #25D366;
+    flex-shrink: 0;
+}
+
+/* CTA Buttons */
+.ctaRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.primaryCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.primaryCta:hover {
+    background: #20ba5a;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+}
+
+.secondaryCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--glass-border-mid);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+}
+
+.secondaryCta:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border-color: rgba(255, 159, 28, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Trust indicator */
+.trustIndicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.sparkleIcon {
+    color: var(--accent);
+}
+
+/* Right column IDE mock frame */
+.graphicCol {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.windowFrame {
+    width: 100%;
+    max-width: 440px;
+    background: #0d131a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.promoCard:hover .windowFrame {
+    transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
+}
+
+.windowHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #090d12;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.windowDotRed, .windowDotYellow, .windowDotGreen {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.windowDotRed { background-color: #ff5f56; }
+.windowDotYellow { background-color: #ffbd2e; }
+.windowDotGreen { background-color: #27c93f; }
+
+.windowTitle {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+.windowBody {
+    padding: 24px;
+    color: #e3e9f0;
+    text-align: left;
+}
+
+.codeLine {
+    min-height: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+}
+
+.indent1 {
+    padding-left: 20px;
+}
+
+/* Custom code highlighting tokens */
+.codeKeyword {
+    color: #ff79c6;
+    font-weight: 600;
+}
+
+.codeString {
+    color: #f1fa8c;
+}
+
+.codeComment {
+    color: #6272a4;
+    font-style: italic;
+}
+
+.codeVar {
+    color: #50fa7b;
+}
+
+.codeClass {
+    color: #8be9fd;
+    font-weight: 600;
+}
+
+.codeKey {
+    color: #ffb86c;
+}
+
+.codeMethod {
+    color: #f1fa8c;
+}
+
+/* Floating decorative tags */
+.floatBadge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    z-index: 3;
+}
+
+.badge1 {
+    top: -20px;
+    left: -10px;
+    background: rgba(45, 106, 79, 0.85);
+    border: 1px solid rgba(45, 106, 79, 0.4);
+}
+
+.badge2 {
+    bottom: -15px;
+    right: -10px;
+    background: rgba(255, 159, 28, 0.85);
+    border: 1px solid rgba(255, 159, 28, 0.4);
+}
+
+.badge3 {
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .floatBadge {
+        display: none;
+    }
+}
