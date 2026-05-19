@@ -15,7 +15,6 @@ import { ScrollProgressBar, AmbientOrbs, NatureDivider } from "@/components/Scro
 // Dynamic imports (client-only / heavy)
 const NatureParticles = dynamic(() => import("@/components/NatureParticles/NatureParticles"), { ssr: false });
 const TrustSection = dynamic(() => import("@/components/TrustSection/TrustSection"), { ssr: false });
-const Gallery = dynamic(() => import("@/components/Gallery/Gallery").then(m => ({ default: m.Gallery })), { ssr: false });
 const Testimonials = dynamic(() => import("@/components/Testimonials/Testimonials").then(m => ({ default: m.Testimonials })), { ssr: false });
 const FAQ = dynamic(() => import("@/components/FAQ/FAQ").then(m => ({ default: m.FAQ })), { ssr: false });
 const Contact = dynamic(() => import("@/components/Contact/Contact").then(m => ({ default: m.Contact })), { ssr: false });
@@ -77,12 +76,7 @@ export default function Home() {
 
         <NatureDivider />
 
-        {/* 6. Gallery — masonry + lightbox */}
-        <Gallery />
-
-        <NatureDivider />
-
-        {/* 7. Testimonials — auto-playing slider */}
+        {/* 6. Testimonials — auto-playing slider */}
         <Testimonials />
 
         <NatureDivider />
