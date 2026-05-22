@@ -19,7 +19,6 @@ const Testimonials = dynamic(() => import("@/components/Testimonials/Testimonial
 const FAQ = dynamic(() => import("@/components/FAQ/FAQ").then(m => ({ default: m.FAQ })), { ssr: false });
 const Contact = dynamic(() => import("@/components/Contact/Contact").then(m => ({ default: m.Contact })), { ssr: false });
 const FloatingActions = dynamic(() => import("@/components/FloatingActions/FloatingActions"), { ssr: false });
-const DevPromo = dynamic(() => import("@/components/DevPromo/DevPromo").then(m => ({ default: m.DevPromo })), { ssr: false });
 
 export default function Home() {
   // Smooth scroll for anchor links
@@ -97,11 +96,6 @@ export default function Home() {
 
         {/* 11. Visiting Card */}
         <VisitingCard />
-
-        <NatureDivider />
-
-        {/* 11.5 Developer Promotion */}
-        <DevPromo />
       </main>
 
       {/* 12. Footer — premium 4-col */}

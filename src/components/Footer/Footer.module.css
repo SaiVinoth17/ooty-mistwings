@@ -331,7 +331,7 @@
     border-radius: 6px;
     background: rgba(255, 159, 28, 0.05);
     border: 1px solid rgba(255, 159, 28, 0.15);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-flex;
     align-items: center;
 }
@@ -340,7 +340,11 @@
     color: #ffffff;
     background: linear-gradient(135deg, rgba(255, 159, 28, 0.8) 0%, rgba(255, 192, 100, 0.95) 100%);
     border-color: rgba(255, 159, 28, 0.85);
-    box-shadow: 0 0 15px rgba(255, 159, 28, 0.35);
-    transform: translateY(-1px);
+    box-shadow: 0 0 15px rgba(255, 159, 28, 0.5), 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.05);
     text-decoration: none;
+}
+
+.devLink:active {
+    transform: translateY(0px) scale(0.98);
 }

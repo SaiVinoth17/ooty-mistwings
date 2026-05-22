@@ -167,7 +167,14 @@ export const Footer = () => {
                     <p>© {new Date().getFullYear()} MistWings Holidays. All rights reserved.</p>
                     <p className={styles.madeWith}>
                         Designed & Developed by{' '}
-                        <a href="#need-a-website" className={styles.devLink}>Sai Vinoth</a>
+                        <a 
+                            href="https://wa.me/917604904217" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className={styles.devLink}
+                        >
+                            Sai Vinoth
+                        </a>
                     </p>
                 </div>
             </div>
