@@ -58,7 +58,8 @@ const packages = [
         transport: 'Sedan Cab',
         price: '₹2,500',
         basePrice: 2500,
-        image: '/pykara-boating.png',
+        image: '/pykara-escapade-ooty.webp',
+        alt: 'Pykara Lake boating scenic view in Ooty',
         tags: ['Waterfalls', 'Lake Boating'],
         featured: false,
         description: 'Escape to the pristine beauty of Pykara. Enjoy breathtaking waterfalls, lakes, and forests.',
@@ -98,7 +99,8 @@ const packages = [
         transport: 'Sedan Cab',
         price: '₹3,500',
         basePrice: 3500,
-        image: '/pykara_mudumalai_combo.png',
+        image: '/pykara-mudumalai-tour.webp',
+        alt: 'Mudumalai forest and Pykara sightseeing tour in Ooty',
         tags: ['Pykara', 'Wildlife Sanctuary'],
         featured: true,
         description: 'Combine the serenity of Pykara with the wild thrills of Mudumalai sanctuary.',
@@ -264,7 +266,7 @@ export const Packages = () => {
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             <motion.div layoutId={`image-container-${pkg.id}`} className={styles.cardImageWrapper}>
-                                <motion.img layoutId={`image-${pkg.id}`} src={pkg.image} alt={pkg.title} className={styles.cardImage} />
+                                <motion.img layoutId={`image-${pkg.id}`} src={pkg.image} alt={(pkg as any).alt || pkg.title} className={styles.cardImage} loading="lazy" />
                                 <div className={styles.tags}>
                                     {pkg.tags.map(tag => (
                                         <span key={tag} className={styles.tag}>{tag}</span>
@@ -325,7 +327,7 @@ export const Packages = () => {
                                 <div className={styles.modalLayout}>
                                     {/* Left: Image Side */}
                                     <motion.div layoutId={`image-container-${selectedPkg.id}`} className={styles.modalImageSide}>
-                                        <motion.img layoutId={`image-${selectedPkg.id}`} src={selectedPkg.image} alt={selectedPkg.title} className={styles.modalImage} />
+                                        <motion.img layoutId={`image-${selectedPkg.id}`} src={selectedPkg.image} alt={(selectedPkg as any).alt || selectedPkg.title} className={styles.modalImage} loading="lazy" />
                                         <div className={styles.modalImageOverlay}>
                                             <motion.h3 layoutId={`title-${selectedPkg.id}`}>{selectedPkg.title}</motion.h3>
                                             <p className={styles.modalDesc}>{selectedPkg.description}</p>
