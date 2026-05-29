@@ -41,7 +41,7 @@ export function VisitingCard() {
                             </div>
                             <div className={styles.contactItem}>
                                 <div className={styles.iconBox}><MapPin size={18} /></div>
-                                <p>1, Commercial Road, Ooty, Tamil Nadu</p>
+                                <p>Commercial Road, Ooty, Tamil Nadu</p>
                             </div>
                         </div>
                     </div>
