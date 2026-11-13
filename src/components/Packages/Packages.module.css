@@ -236,6 +236,9 @@
     font-size: 1.4rem;
     font-weight: 800;
     color: var(--primary);
+    filter: blur(6px);
+    user-select: none;
+    display: inline-block;
 }
 
 :global([data-theme="dark"]) .priceValue {
@@ -576,7 +579,7 @@
 .cabDetails { display: flex; flex-direction: column; flex-grow: 1; }
 .cabName { font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
 .cabCapacity { font-size: 0.85rem; color: var(--text-muted); }
-.cabPrice { font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+.cabPrice { font-weight: 800; font-size: 1.2rem; color: var(--primary); filter: blur(6px); user-select: none; display: inline-block; }
 :global([data-theme="dark"]) .cabPrice { color: var(--accent); }
 
 /* Inputs */
@@ -740,8 +743,14 @@
     align-items: center;
 }
 
-.totalPrice { color: var(--primary); font-size: 1.6rem; }
+.totalPrice { color: var(--primary); font-size: 1.6rem; filter: blur(6px); user-select: none; display: inline-block; }
 :global([data-theme="dark"]) .totalPrice { color: var(--accent); }
+
+.blurredPrice {
+    filter: blur(6px);
+    user-select: none;
+    display: inline-block;
+}
 
 .bookingFooter { display: flex; gap: 12px; margin-top: 24px; }
 

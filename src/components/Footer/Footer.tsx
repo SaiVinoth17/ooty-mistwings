@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, Compass, ArrowRight, MessageCircle, Heart } from 'lucide-react';
+import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, Compass, ArrowRight, MessageCircle } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const quickLinks = [
@@ -165,16 +165,17 @@ export const Footer = () => {
             <div className={styles.bottomBar}>
                 <div className={`container ${styles.bottomInner}`}>
                     <p>© {new Date().getFullYear()} MistWings Holidays. All rights reserved.</p>
-                    <p className={styles.madeWith}>
-                        Designed & Developed by{' '}
+                    <p className={styles.attribution}>
+                        Designed & Developed by Sai Vinoth ·{' '}
                         <a 
-                            href="https://wa.me/917604904217" 
+                            href="https://www.aevionstudio.in/" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className={styles.devLink}
+                            className={styles.aevionLink}
                         >
-                            Sai Vinoth
+                            Aevion Studios
                         </a>
+                        . All Rights Reserved.
                     </p>
                 </div>
             </div>

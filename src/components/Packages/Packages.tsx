@@ -290,7 +290,7 @@ export const Packages = () => {
                                 <div className={styles.cardFooter}>
                                     <div className={styles.price}>
                                         <span className={styles.priceLabel}>Starting from</span>
-                                        <span className={styles.priceValue}>{pkg.price}</span>
+                                        <span className={styles.priceValue} title="Contact for current rates">{pkg.price}</span>
                                     </div>
                                     <motion.button
                                         layoutId={`btn-${pkg.id}`}
@@ -498,11 +498,11 @@ export const Packages = () => {
                                                         <h5 className={styles.summaryTitle}>Booking Summary</h5>
                                                         <div className={styles.priceRow}>
                                                             <span>Selected Cab ({cabType})</span>
-                                                            <span>₹{getPrice(selectedPkg.basePrice).toLocaleString('en-IN')}</span>
+                                                            <span className={styles.blurredPrice}>₹{getPrice(selectedPkg.basePrice).toLocaleString('en-IN')}</span>
                                                         </div>
                                                         <div className={styles.priceRow}>
-                                                            <span>Guest Add-on ({Math.max(0, guests - 4)} x ₹1,000)</span>
-                                                            <span>₹{(Math.max(0, guests - 4) * 1000).toLocaleString('en-IN')}</span>
+                                                            <span>Guest Add-on ({Math.max(0, guests - 4)} x <span className={styles.blurredPrice}>₹1,000</span>)</span>
+                                                            <span className={styles.blurredPrice}>₹{(Math.max(0, guests - 4) * 1000).toLocaleString('en-IN')}</span>
                                                         </div>
                                                         <div className={styles.priceRow}>
                                                             <span className={styles.personFeeHint}>Travel Date</span>

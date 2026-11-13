@@ -309,12 +309,34 @@
 .bottomBar p {
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.82rem;
+    line-height: 1.6;
 }
 
+.attribution,
 .madeWith {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.aevionLink {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.aevionLink:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 159, 28, 0.5);
+    transform: translateY(-1px);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.aevionLink:active {
+    transform: translateY(0);
 }
 
 .heartIcon {
